@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Checker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function checkPassword() {
+            const password = document.getElementById("password").value;
+            fetch('/check-password', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `password=${encodeURIComponent(password)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("feedback").innerHTML = `Feedback: ${data.feedback}`;
+                document.getElementById("suggestions").innerHTML = `Suggestions: ${data.suggestions.join(', ')}`;
+                document.getElementById("time_to_crack").innerHTML = `Time to crack: ${data.time_to_crack}`;
+                document.getElementById("strength").innerHTML = `Password Strength: ${data.strength.message}`;
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Password Strength Checker</h1>
+            
+            <form class="password-checker" onsubmit="event.preventDefault(); checkPassword();">
+                <label for="password">Enter your password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Check Strength</button>
+            </form>
+            
+            <div id="result" class="results">
+                <p id="feedback"></p>
+                <p id="suggestions"></p>
+                <p id="time_to_crack"></p>
+                <p id="strength"></p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Designed with ❤️ by <a href="https://www.instagram.com/rajm012/" target="_blank">rajm012</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/raj-maurya-271b32237/" target="_blank">Raj</a></p>
+        </footer>
+    </div>
+</body>
+</html>
