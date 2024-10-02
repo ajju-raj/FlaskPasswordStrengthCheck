@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: #00FF00;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00FF00;
+    box-shadow: 0 0 15px #00FF00;
+    width: 900px;
+    height: 80vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 0px 0px 10px #00FF00;
+}
+
+.password-checker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.password-checker label {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.password-checker input {
+    font-size: 1.2rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 80%;
+    border: 2px solid #00FF00;
+    background: rgba(0, 0, 0, 0.6);
+    color: #00FF00;
+    outline: none;
+    text-align: center;
+}
+
+.password-checker button {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #00FF00;
+    color: black;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 10px #00FF00;
+    transition: background-color 0.3s ease;
+}
+
+.password-checker button:hover {
+    background-color: #005500;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    text-shadow: 0px 0px 5px #00FF00;
+}
+
+/* Footer Section */
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #00FF00;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+footer a {
+    color: #00FF00;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
